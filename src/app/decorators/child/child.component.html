@@ -1,0 +1,15 @@
+<div class="child-container">
+  <div class="item" *ngFor="let item of items" (click)="selectItem(item)">
+    <div
+      *ngIf="item.name == 'Green'; else itemDisplay"
+      style="background-color: red"
+    >
+      {{ item.name }}
+    </div>
+    <ng-template #itemDisplay>
+      <div style="background-color: black">
+        {{ item.name }}
+      </div>
+    </ng-template>
+  </div>
+</div>

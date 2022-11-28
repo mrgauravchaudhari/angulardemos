@@ -1,0 +1,10 @@
+<h1>Parent Component</h1>
+
+<div class="row">
+  <label for="input">Input: </label>
+  <input type="text" id="input" [(ngModel)]="formName" />
+</div>
+
+<app-child [formName]="formName">
+  <h2 #ParentContent>Angular Training</h2>
+</app-child>

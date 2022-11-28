@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="heading">Reactive Approach</div>
+  <div class="form-container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="uname">Username</label>
+        <input type="text" class="form-control" id="uname" formControlName="uname" />
+        <small *ngIf="!myForm.controls['uname'].valid && myForm.controls['uname'].touched">Username is required</small>
+      </div>
+
+      <div class="form-group">
+        <label for="emailAddress">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="emailAddress" />
+        <small *ngIf="
+            myForm.controls['email'].errors &&
+            myForm.controls['email'].errors.required &&
+            myForm.controls['email'].touched
+          ">Email Address is required</small>
+        <small *ngIf="
+            myForm.controls['email'].errors &&
+            myForm.controls['email'].errors.email &&
+            myForm.controls['email'].touched
+          ">Email Address should be valid</small>
+      </div>
+
+      <div class="d-flex">
+        <div class="form-group form-check">
+          <input type="checkbox" formControlName="readTerms" class="form-check-input" id="readTerms" />
+          <label class="form-check-label" for="readTerms">I have read terms and conditions</label>
+        </div>
+
+        <button type="button" (click)="accept()">Accept</button>
+
+        <button type="submit" [disabled]="!myForm.valid" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">Create Account</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                  <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
+                    formControlName="FIRST_NAME">
+                  <label for="inputFirstName">First name</label>
+                  <span *ngIf="FIRST_NAME && FIRST_NAME.invalid" style="color: red;">Please enter valid name!</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input class="form-control" required="true" id="inputLastName" type="text" placeholder="Enter your last name"
+                    formControlName="LAST_NAME" />
+                  <label for="inputLastName">Last name</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input class="form-control" required id="inputEmail" type="email" placeholder="name@example.com"
+                formControlName="EMAIL" />
+              <label for="inputEmail">Email address</label>
+              <span *ngIf="EMAIL && EMAIL.invalid" style="color: red;">Please enter valid email address!</span>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                  <input class="form-control" id="inputPassword" type="password" placeholder="Create a password"
+                    formControlName="PWD" />
+                  <label for="inputPassword">Password</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                  <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password"
+                    formControlName="RPWD" />
+                  <label for="inputPasswordConfirm">Confirm Password</label>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 mb-0">
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="RegisterForm.invalid"> Create
+                  Account</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center py-3">
+          <a class="small" href="auth/login">Return to login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <span *ngIf="FIRST_NAME && FIRST_NAME.invalid" style="color: red;">Please enter valid name!</span> -->
+<!-- <span *ngIf="EMAIL && EMAIL.invalid" style="color: red;">Please enter valid email address!</span> -->
+
+<!-- (ngSubmit)="onSubmit()" -->
+<!-- [disabled]="RegisterForm.invalid" -->
+
+<!-- <br>
+                  <table style="border-collapse:collapse; font-family:Arial; table-layout: fixed">
+                    <tr style="background-color:rgb(25, 126, 128); color: white; font-weight: bold">
+                      <td colspan="3" style="padding:3px; white-space:nowrap; width:100%">
+                        <h4>First Name</h4>
+                      </td>
+                    </tr>
+                    <tr style="background-color:rgb(60, 201, 203); font-weight: bold">
+                      <td style="padding:10px; white-space:nowrap; width:33%">
+                        <div>touched : {{ FIRSTNAME.touched }}</div>
+                        <div>untouched : {{ FIRSTNAME.untouched }}</div>
+                      </td>
+                      <td style="padding:10px; white-space:nowrap; width:33%">
+                        <div>pristine : {{ FIRSTNAME.pristine }}</div>
+                        <div>dirty : {{ FIRSTNAME.dirty }}</div>
+                      </td>
+                      <td style="padding:10px; white-space:nowrap; width:33%">
+                        <div>valid : {{ FIRSTNAME.valid }}</div>
+                        <div>invalid : {{ FIRSTNAME.invalid }}</div>
+                      </td>
+                    </tr>
+                  </table> -->
+
+<!-- <br>
+          <table style="border-collapse:collapse; font-family:Arial; table-layout: fixed">
+            <tr style="background-color:rgb(170, 120, 12); font-weight: bold">
+              <td colspan="3" style="padding:3px; white-space:nowrap; width:100%">
+                <h4>First Name</h4>
+              </td>
+            </tr>
+            <tr style="background-color:rgb(212, 149, 13); font-weight: bold">
+              <td style="padding:10px; white-space:nowrap; width:33%">
+                <div>touched : {{ RegisterForm.touched }}</div>
+                <div>untouched : {{ RegisterForm.untouched }}</div>
+              </td>
+              <td style="padding:10px; white-space:nowrap; width:33%">
+                <div>pristine : {{ RegisterForm.pristine }}</div>
+                <div>dirty : {{ RegisterForm.dirty }}</div>
+              </td>
+              <td style="padding:10px; white-space:nowrap; width:33%">
+                <div>valid : {{ RegisterForm.valid }}</div>
+                <div>invalid : {{ RegisterForm.invalid }}</div>
+              </td>
+            </tr>
+          </table> -->
+
+
+<!-- <div class="row mb-3">
+              <div class="col-md-6">
+                <div class="form-floating mb-3 mb-md-0">
+                  <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name"
+                    [(ngModel)]="RegisterForm2.FIRST_NAME" #FIRST_NAME_CONTROL="ngModel">
+                  <label for="inputFirstName">First name</label>
+                </div>
+                <br>
+                <table style="border-collapse:collapse; font-family:Arial; table-layout: fixed">
+                  <tr style="background-color:rgb(25, 126, 128); color: white; font-weight: bold">
+                    <td colspan="3" style="padding:3px; white-space:nowrap; width:100%">
+                      <h4>First Name</h4>
+                    </td>
+                  </tr>
+                  <tr style="background-color:rgb(60, 201, 203); font-weight: bold">
+                    <td style="padding:10px; white-space:nowrap; width:33%">
+                      <div>touched : {{ FIRST_NAME_CONTROL.touched }}</div>
+                      <div>untouched : {{ FIRST_NAME_CONTROL.untouched }}</div>
+                    </td>
+                    <td style="padding:10px; white-space:nowrap; width:33%">
+                      <div>pristine : {{ FIRST_NAME_CONTROL.pristine }}</div>
+                      <div>dirty : {{ FIRST_NAME_CONTROL.dirty }}</div>
+                    </td>
+                    <td style="padding:10px; white-space:nowrap; width:33%">
+                      <div>valid : {{ FIRST_NAME_CONTROL.valid }}</div>
+                      <div>invalid : {{ FIRST_NAME_CONTROL.invalid }}</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div> -->
